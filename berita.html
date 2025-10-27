@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kesehatan Digital - Tugas Web Development</title>
+    <style>
+        /* =================================================== */
+        /* CSS: Styling Dasar, Warna, dan Layout */
+        /* =================================================== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e8; /* Background Hijau Mint */
+            color: #333;
+        }
+
+        header {
+            background-color: #2e7d32; /* Hijau Tua untuk Header */
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2e7d32;
+            border-bottom: 3px solid #a5d6a7;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        /* 1. Styling Berita */
+        #berita-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .berita-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-left: 5px solid #2e7d32; /* Garis Penanda Kredibilitas */
+        }
+        
+        .berita-info {
+            font-size: 0.85em;
+            color: #666;
+            margin: 10px 0;
+            border-top: 1px dashed #ccc;
+            padding-top: 5px;
+        }
+        .berita-info span b { /* Membuat Sumber dan Tanggal menjadi bold */
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        .berita-card a {
+            display: inline-block;
+            background-color: #2e7d32; 
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .berita-card a:hover {
+            background-color: #1b5e20;
+        }
+
+
+        /* 3. Styling Form Konsultasi */
+        #konsultasi-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Membagi form menjadi 2 kolom */
+            gap: 20px;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1; 
+        }
+
+        #konsultasi-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+        
+        #konsultasi-form input:not([type="submit"]), 
+        #konsultasi-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        #konsultasi-form button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; 
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        
+        #konsultasi-form button:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Pesan Konfirmasi di Form */
+        #konfirmasi-pesan {
+            padding: 15px;
+            background-color: #c8e6c9; 
+            color: #2e7d32;
+            border: 1px solid #2e7d32;
+            border-radius: 4px;
+            display: none; 
+            grid-column: 1 / -1;
+        }
+
+        /* 2. Styling Notifikasi Pop-up */
+        #reminder-popup {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 250px;
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        #reminder-popup button {
+            background-color: white; 
+            color: #2e7d32;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        footer {
+  background:#2e7d32; color:white; text-align:center; padding:10px;
+  margin-top:20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Sehat Selalu 💚</h1>
+        <p>Sumber Informasi Kesehatan Terpercaya dan Layanan Konsultasi Digital</p>
+    </header>
+
+    <div class="container">
+        <section id="berita">
+            <h2>📰 Berita & Update Kesehatan Resmi</h2>
+            <p>Dapatkan informasi terbaru yang terjamin kredibilitasnya dari sumber kesehatan utama.</p>
+            
+            <div id="berita-grid">
+                
+                <div class="berita-card">
+                    <h3>Peringatan Dini! Vaksinasi Polio Wajib bagi Anak</h3>
+                    
+                    <div class="berita-info">
+                        <span><b>Sumber:</b> Kemenkes RI</span>
+                        <span><b>Tanggal:</b> 25 Oktober 2025</span>
+                    </div>
+
+                    <p>Kementerian Kesehatan mengumumkan perluasan cakupan vaksinasi polio dan DPT. Jangan lewatkan jadwal imunisasi anak Anda.</p>
+                    <a href="#" onclick="alert('Anda diarahkan ke laman detail Berita Imunisasi.')">Baca Selengkapnya »</a>
+                </div>
+
+                <div class="berita-card">
+                    <h3>Aturan 20-20-20: Taktik Jitu Jaga Kesehatan Mata di Era Digital</h3>
+                    
+                    <div class="berita-info">
+                        <span><b>Sumber:</b> IDI (Ikatan Dokter Indonesia)</span>
+                        <span><b>Tanggal:</b> 20 Oktober 2025</span>
+                    </div>
+
+                    <p>Tips mudah menjaga kesehatan mata dan postur tubuh saat bekerja. Ini adalah langkah pencegahan terbaik dari kelelahan mata digital.</p>
+                    <a href="#" onclick="alert('Anda diarahkan ke laman detail Aturan 20-20-20.')">Baca Selengkapnya »</a>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="konsultasi">
+            <h2>🩺 Form Konsultasi Online Profesional</h2>
+            <p>Pesan sesi konsultasi dengan dokter spesialis kami. Kami menjamin kerahasiaan data dan konfirmasi jadwal yang cepat.</p>
+            
+            <form id="konsultasi-form">
+                
+                <div>
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" name="nama" placeholder="Cth: Budi Santoso" required>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                </div>
+                
+                <div class="full-width">
+                    <label for="keluhan">Keluhan Kesehatan Singkat:</label>
+                    <textarea id="keluhan" name="keluhan" rows="4" placeholder="Jelaskan keluhan Anda dalam 1-2 kalimat singkat." required></textarea>
+                </div>
+
+                <div>
+                    <label for="jadwal">Pilih Tanggal & Jam Konsultasi:</label>
+                    <input type="datetime-local" id="jadwal" name="jadwal" required>
+                </div>
+
+                <div class="full-width">
+                    <button type="submit">Pesan Konsultasi Sekarang</button>
+                </div>
+                
+                <div id="konfirmasi-pesan" class="full-width"></div>
+            </form>
+        </section>
+
+        ---
+        
+    </div>
+
+    <div id="reminder-popup">
+        <p id="reminder-message">Pesan notifikasi akan muncul di sini.</p>
+        <button onclick="closeReminder()">Tutup</button>
+    </div>
+
+    <footer>
+  <p>&copy; 2025 Website Kesehatan Kita — Semua Hak Dilindungi</p>
+</footer>
+
+    <script>
+        // FUNGSI 2: Notifikasi Pengingat
+        function closeReminder() {
+            document.getElementById('reminder-popup').style.display = 'none';
+        }
+
+        function showReminder(message) {
+            document.getElementById('reminder-message').innerHTML = message;
+            document.getElementById('reminder-popup').style.display = 'block';
+            
+            setTimeout(closeReminder, 8000); 
+        }
+
+        let reminderCount = 0;
+        setInterval(() => {
+            reminderCount++;
+            let message = "";
+
+            if (reminderCount % 3 === 1) {
+                message = "💧 Penting! Saatnya Minum Air. Jangan dehidrasi.";
+            } else if (reminderCount % 3 === 2) {
+                message = "🧘 Rehat Sebentar! Jauhkan mata dari layar selama 5 menit.";
+            } else {
+                message = "📚 Update! Cek artikel kesehatan baru di Berita.";
+            }
+
+            showReminder(message);
+        }, 6000); 
+
+        // FUNGSI 3: Form Konsultasi
+        document.getElementById('konsultasi-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const nama = document.getElementById('nama').value;
+            const jadwalInput = document.getElementById('jadwal').value;
+            
+            const jadwalTeks = new Date(jadwalInput).toLocaleString('id-ID', { 
+                day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
+
+            const konfirmasiDiv = document.getElementById('konfirmasi-pesan');
+            
+            // Menggunakan <strong> di dalam innerHTML untuk teks bold
+            konfirmasiDiv.innerHTML = `
+                <p><strong>✅ Pemesanan Berhasil, ${nama}!</strong></p>
+                <p>Jadwal konsultasi Anda telah dicatat pada: <strong>${jadwalTeks}</strong></p>
+                <p>Kami akan mengirimkan detail tautan konsultasi ke email Anda.</p>
+            `;
+            konfirmasiDiv.style.display = 'block';
+
+            setTimeout(() => {
+                konfirmasiDiv.style.display = 'none';
+            }, 10000);
+
+            this.reset();
+        });
+    </script>
+</body>
+</html>

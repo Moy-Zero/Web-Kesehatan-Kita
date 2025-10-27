@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Website Kesehatan — Kelompok 9</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #e8f5e8;
+  margin: 0;
+  color: #1f3a24;
+}
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header h1 { margin: 0; font-size: 1.4rem; }
+.navbar a {
+  color: white; text-decoration: none; margin: 4px 8px; padding: 6px 8px;
+  border-radius: 6px; font-weight: 600;
+}
+.navbar a:hover, .navbar a.active {
+  background: rgba(255,255,255,0.2);
+}
+.container {
+  width: 94%; max-width: 960px; margin: 20px auto;
+  background: white; border-radius: 10px; padding: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+h2,h3 { color:#2e7d32; text-align:center; }
+.btn {
+  background:#2e7d32; color:white; border:none; padding:8px 12px;
+  border-radius:6px; cursor:pointer; font-weight:600;
+}
+.btn:hover { filter: brightness(0.9); }
+.btn.outline {
+  background:transparent; border:2px solid #2e7d32; color:#1b4f22;
+}
+input,textarea,select {
+  width:100%; padding:8px; margin-top:6px; border:1px solid #cde1cf;
+  border-radius:6px; background:#f7fff7;
+}
+table {
+  width:100%; border-collapse:collapse; margin-top:12px;
+}
+th,td {
+  border:1px solid #d8f1e0; padding:8px; text-align:center;
+}
+th { background:#d8f3dc; color:#1b4f22; }
+tbody tr:nth-child(even){ background:#f1faf2; }
+footer {
+  background:#2e7d32; color:white; text-align:center; padding:10px;
+  margin-top:20px;
+}
+section { display:none; }
+section.active { display:block; }
+.msg { text-align:center; color:#666; margin-top:8px; }
+.controls {
+  display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; justify-content:center;
+}
+@media(max-width:720px){
+  .navbar a{font-size:0.9rem;}
+  .controls{flex-direction:column;align-items:stretch;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌿 Kesehatan Kita</h1>
+  <nav class="navbar">
+    <a href="#" class="active" data-page="beranda">Beranda</a>
+    <a href="#" data-page="riwayat">Riwayat</a>
+    <a href="#" data-page="login">Login</a>
+    <a href="berita.html">Konsultasi</a>
+    <a href="berita.html">Berita</a>
+    <a href="BMI.html">BMI</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="Feedback.html">Feedback</a>
+    <a href="tenaga_medis.html">Direktori</a>
+    <a href="statistik.html">Statistik</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+</header>
+
+<!-- ================= BERANDA ================= -->
+<section id="beranda" class="container active">
+  <h2>Selamat Datang di Website Kesehatan Kita</h2>
+  <p style="text-align:justify;line-height:1.6;">
+    <b>Website Kesehatan Kita</b> adalah platform informasi dan layanan simulasi kesehatan yang dirancang untuk membantu masyarakat memahami pentingnya menjaga kesehatan secara menyeluruh — baik fisik maupun mental. 
+    Melalui website ini, pengguna dapat melakukan simulasi konsultasi, mencatat riwayat kesehatan, serta memantau data dan tips kesehatan terkini.
+  </p>
+  <p style="text-align:justify;line-height:1.6;">
+    Website ini dikembangkan sebagai bagian dari studi kasus pembelajaran pengembangan web menggunakan <b>HTML, CSS, dan JavaScript</b>. 
+    Setiap fitur didesain agar interaktif dan mudah digunakan, dengan tampilan hijau lembut yang melambangkan keseimbangan dan ketenangan dalam hidup sehat.
+  </p>
+
+  <h3>Fitur Utama Website</h3>
+  <table>
+    <tr><th>Fitur</th><th>Deskripsi</th></tr>
+    <tr>
+      <td>Riwayat Konsultasi</td>
+      <td>Pencatatan data konsultasi seperti nama pasien, usia, keluhan, dan tanggal konsultasi yang dapat diedit, dihapus, serta diekspor ke CSV.</td>
+    </tr>
+    <tr>
+      <td>Kalkulator BMI</td>
+      <td>Fitur untuk menghitung Body Mass Index guna mengetahui status berat badan ideal pengguna.</td>
+    </tr>
+    <tr>
+      <td>Form Konsultasi Online</td>
+      <td>Form simulasi untuk mengirim pertanyaan atau keluhan kesehatan dan mendapatkan tanggapan digital.</td>
+    </tr>
+    <tr>
+      <td>Berita & Tips Kesehatan</td>
+      <td>Informasi terkini seputar gaya hidup sehat, nutrisi, dan pencegahan penyakit.</td>
+    </tr>
+    <tr>
+      <td>Statistik & Direktori</td>
+      <td>Menampilkan data tenaga medis serta statistik kesehatan secara visual dan informatif.</td>
+    </tr>
+  </table>
+
+  <div style="text-align:center;margin-top:16px;">
+    <button class="btn" onclick="showPage('riwayat')">Lihat Riwayat Konsultasi</button>
+    <button class="btn outline" onclick="showPage('login')">Masuk</button>
+  </div>
+</section>
+
+<!-- ================= RIWAYAT KONSULTASI ================= -->
+<section id="riwayat" class="container">
+  <h2>Riwayat Konsultasi</h2>
+  <form id="formKonsultasi">
+    <input type="hidden" id="recId">
+    <label>Nama:</label><input type="text" id="nama" required>
+    <label>Usia:</label><input type="number" id="usia" min="0" max="120" required>
+    <label>Keluhan:</label><textarea id="keluhan" rows="3" required></textarea>
+    <label>Tanggal:</label><input type="date" id="tanggal" required>
+    <div style="text-align:center;margin-top:10px;">
+      <button type="submit" class="btn">Simpan</button>
+      <button type="button" class="btn outline" id="resetBtn">Reset</button>
+    </div>
+  </form>
+
+  <h3>Daftar Riwayat</h3>
+  <div class="controls">
+    <input id="search" placeholder="Cari nama atau keluhan...">
+    <select id="sortBy">
+      <option value="new">Urut Terbaru</option>
+      <option value="old">Urut Terlama</option>
+      <option value="az">Nama A→Z</option>
+      <option value="za">Nama Z→A</option>
+    </select>
+    <button id="exportCSV" class="btn">Export CSV</button>
+  </div>
+
+  <table id="tableData">
+    <thead>
+      <tr>
+        <th>Nama</th><th>Usia</th><th>Keluhan</th><th>Tanggal</th><th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <p id="msg" class="msg">Belum ada data konsultasi.</p>
+</section>
+
+<!-- ================= LOGIN ================= -->
+<section id="login" class="container">
+  <h2>Login Pengguna (Simulasi)</h2>
+  <form id="loginForm" style="max-width:400px;margin:auto;">
+    <label>Email:</label>
+    <input type="email" id="email" required>
+    <label>Password:</label>
+    <input type="password" id="password" required>
+    <div style="text-align:center;margin-top:10px;">
+      <button type="submit" class="btn">Masuk</button>
+    </div>
+    <p id="loginMsg" class="msg"></p>
+  </form>
+  <p style="text-align:center;font-size:0.9em;">Gunakan <b>admin@kesehatan.com / 12345</b> untuk demo.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Website Kesehatan Kita — Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+// === Navigasi antar tab ===
+const links = document.querySelectorAll(".navbar a[data-page]");
+links.forEach(a=>a.addEventListener("click", e=>{
+  e.preventDefault();
+  const page = a.dataset.page;
+  showPage(page);
+}));
+function showPage(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  if(document.getElementById(id)) document.getElementById(id).classList.add("active");
+  links.forEach(a=>a.classList.remove("active"));
+  links.forEach(a=>{ if(a.dataset.page===id) a.classList.add("active"); });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// === Data Riwayat ===
+let data = JSON.parse(localStorage.getItem("riwayatKel9")||"[]");
+const form=document.getElementById("formKonsultasi");
+const tbody=document.querySelector("#tableData tbody");
+const msg=document.getElementById("msg");
+
+function save(){localStorage.setItem("riwayatKel9",JSON.stringify(data));}
+function render(){
+  tbody.innerHTML="";
+  const term=document.getElementById("search").value.toLowerCase();
+  let list=data.filter(d=>d.nama.toLowerCase().includes(term)||d.keluhan.toLowerCase().includes(term));
+  const sort=document.getElementById("sortBy").value;
+  if(sort==="new") list.sort((a,b)=>b._time-a._time);
+  if(sort==="old") list.sort((a,b)=>a._time-b._time);
+  if(sort==="az") list.sort((a,b)=>a.nama.localeCompare(b.nama));
+  if(sort==="za") list.sort((a,b)=>b.nama.localeCompare(a.nama));
+  if(list.length===0){msg.style.display="block";return;}
+  msg.style.display="none";
+  list.forEach((d,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${d.nama}</td><td>${d.usia}</td><td>${d.keluhan}</td><td>${d.tanggal}</td>
+    <td><button class="btn small" onclick="editData(${i})">Edit</button>
+    <button class="btn outline small" onclick="hapusData(${i})">Hapus</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+function hapusData(i){
+  if(confirm("Yakin hapus data ini?")){data.splice(i,1);save();render();}
+}
+function editData(i){
+  const d=data[i];
+  document.getElementById("nama").value=d.nama;
+  document.getElementById("usia").value=d.usia;
+  document.getElementById("keluhan").value=d.keluhan;
+  document.getElementById("tanggal").value=d.tanggal;
+  document.getElementById("recId").value=d._time;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+  const nama=document.getElementById("nama").value.trim();
+  const usia=document.getElementById("usia").value;
+  const keluhan=document.getElementById("keluhan").value.trim();
+  const tanggal=document.getElementById("tanggal").value;
+  if(!nama||!usia||!keluhan||!tanggal)return alert("Lengkapi semua data!");
+  const id=document.getElementById("recId").value;
+  if(id){
+    const i=data.findIndex(d=>String(d._time)===id);
+    if(i>=0)data[i]={...data[i],nama,usia,keluhan,tanggal};
+  } else {
+    data.push({nama,usia,keluhan,tanggal,_time:Date.now()});
+  }
+  save();form.reset();document.getElementById("recId").value="";render();
+});
+document.getElementById("resetBtn").onclick=()=>{form.reset();document.getElementById("recId").value="";};
+document.getElementById("search").oninput=render;
+document.getElementById("sortBy").onchange=render;
+document.getElementById("exportCSV").onclick=()=>{
+  if(data.length===0)return alert("Belum ada data!");
+  const header="Nama,Usia,Keluhan,Tanggal\n";
+  const rows=data.map(d=>`${d.nama},${d.usia},"${d.keluhan}",${d.tanggal}`).join("\n");
+  const blob=new Blob([header+rows],{type:"text/csv"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download="riwayat_konsultasi.csv";a.click();
+};
+
+// === Login ===
+document.getElementById("loginForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const email=document.getElementById("email").value.trim();
+  const pass=document.getElementById("password").value.trim();
+  const msg=document.getElementById("loginMsg");
+  if(email==="admin@kesehatan.com"&&pass==="12345"){
+    msg.style.color="green";msg.textContent="Login berhasil!";setTimeout(()=>showPage("beranda"),1000);
+  } else {
+    msg.style.color="red";msg.textContent="Email atau password salah.";
+  }
+});
+render();
+</script>
+</body>
+</html>

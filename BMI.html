@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="bmi.css">
+</head>
+<body>
+    <header>
+        <h1>Kalkulator BMI</h1>
+    </header>
+
+    <div class="container">
+        <div class="section" id="input-section">
+            <h2>Pilih Jenis Kelamin</h2>
+            <div class="gender-selection">
+                <div class="gender-option" id="male" onclick="selectGender('male')">
+                    <img src="Image/Pria.jpg" alt="Pria">
+                    <p>Pria</p>
+                </div>
+                <div class="gender-option" id="female" onclick="selectGender('female')">
+                    <img src="Image/Wanita.jpg" alt="Wanita">
+                    <p>Wanita</p>
+                </div>
+            </div>
+
+            <h2>Masukkan Data Anda</h2>
+            <div class="input-group">
+                <label for="weight">Berat Badan (kg):</label>
+                <input type="number" id="weight" placeholder="Contoh: 70">
+            </div>
+            <div class="input-group">
+                <label for="height">Tinggi Badan (cm):</label>
+                <input type="number" id="height" placeholder="Contoh: 170">
+            </div>
+            <div class="input-group">
+                <label for="age">Usia (opsional):</label>
+                <input type="number" id="age" placeholder="Contoh: 25">
+            </div>
+            <button onclick="calculateBMI()">Hitung BMI</button>
+        </div>
+
+        <div class="section" id="result-section">
+            <h2>Hasil BMI</h2>
+            <div id="result">Masukkan data dan klik "Hitung BMI" untuk melihat hasil.</div>
+            <button onclick="resetForm()">Cek Ulang</button>
+        </div>
+        <p style="text-align: center; margin-top: 20px;"><a href="index.html">Kembali ke Beranda</a></p>
+    </div>
+    <footer>
+  <p>&copy; 2025 Website Kesehatan Kita — Semua Hak Dilindungi</p>
+</footer>
+
+    <script src="bmi.js"></script>
+</body>
+</html>

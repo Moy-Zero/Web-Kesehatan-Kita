@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e8;
+    color: #2e7d32;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    flex: 1; /* Membuat container mengambil ruang yang tersedia */
+}
+h1 {
+    text-align: center;
+    color: #388e3c;
+}
+.icon {
+    text-align: center;
+    font-size: 50px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+.faq-section {
+    margin-top: 20px;
+}
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #c8e6c9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.faq-question {
+    width: 100%;
+    background-color: #f1f8e9;
+    color: #2e7d32;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.faq-question:hover {
+    background-color: #dcedc8;
+}
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background-color: #ffffff;
+    border-top: 1px solid #c8e6c9;
+}
+.faq-answer p {
+    margin: 0;
+}
+footer {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto; /* Memastikan footer di bawah */
+}

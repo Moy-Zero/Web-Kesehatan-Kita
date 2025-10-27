@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Kesehatan</title>
+    <link rel="stylesheet" href="Feedback.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">❤️</div>
+        <h1>Feedback Layanan Kesehatan</h1>
+        <p>Berikan masukan Anda tentang pengalaman kesehatan Anda. Kami menghargai pendapat Anda!</p>
+        
+        <form id="feedbackForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="rating">Rating Pengalaman Kesehatan (1-5):</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+            </div>
+
+            <label for="comments">Komentar:</label>
+            <textarea id="comments" rows="4" placeholder="Tulis komentar Anda di sini..."></textarea>
+
+            <button type="submit">Kirim Feedback</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 20px;"><a href="index.html">Kembali ke Beranda</a></p>
+        
+    </div>
+    <footer>
+  <p>&copy; 2025 Website Kesehatan Kita — Semua Hak Dilindungi</p>
+</footer>
+
+    <script src="Feedback.js"></script>
+</body>
+</html>
